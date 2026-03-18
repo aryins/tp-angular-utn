@@ -1,0 +1,24 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+header img {
+    height: 50px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}   
+header ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-family: sans-serif;
+} 
