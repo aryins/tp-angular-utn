@@ -1,59 +1,33 @@
-# ClaseUtn
+# Chat App - Angular 17 (UTN TP)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+Proyecto de chat interactivo desarrollado con **Angular 17**, utilizando **Standalone Components**, **Signals** para la gestión de estado y el nuevo **Control Flow** (@if, @for).
 
-## Development server
+## 🚀 Instrucciones de Instalación
 
-To start a local development server, run:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/aryins/tp-angular-utn.git](https://github.com/aryins/tp-angular-utn.git)
+    cd tp-angular-utn
+    ```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+3.  **Correr el servidor de desarrollo:**
+    ```bash
+    ng serve
+    ```
+    Accede a `http://localhost:4200` en tu navegador.
 
-```bash
-ng serve
-```
+## 📁 Estructura del Proyecto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- `src/app/components`: Componentes Standalone (Sidebar, ChatWindow, Message).
+- `src/app/services`: `ChatService` centralizado usando **Signals**.
+- `src/app/interfaces`: Definiciones de modelos para `Chat` y `Message`.
+- `src/app/app.routes.ts`: Configuración de rutas hijas y redirecciones.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🛠️ Cómo Probar la Aplicación
+1. Al entrar, serás redirigido a `/chats`.
+2. Selecciona un chat del Sidebar para ver los mensajes.
+3. Envía un mensaje: El sistema actualizará el estado global y disparará una **respuesta automática** del bot después de 2 segundos.
+4. Prueba la validación: El botón de enviar se deshabilita si el mensaje está vacío (Reactive Forms).
