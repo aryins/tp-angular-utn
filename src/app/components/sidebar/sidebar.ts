@@ -1,14 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
   styleUrls: ['./sidebar.css']
 })
 export class Sidebar {
-  public chatService = inject(ChatService); 
+  // Inyección del servicio de chats para obtener la lista de contactos [cite: 23]
+  public chatService = inject(ChatService);
 }

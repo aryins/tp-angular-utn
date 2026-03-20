@@ -9,5 +9,5 @@ export interface Chat {
   contactName: string;
   avatar: string;
   status: 'online' | 'offline' | string;
-  mensages: Mensaje[];
+  mensajes: Mensaje[];
 }

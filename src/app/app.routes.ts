@@ -1,20 +1,16 @@
 import { Routes } from '@angular/router';
+import { Home } from './views/home/home';
+import {Login} from './views/home/login/login';
+import { ChatWindow } from './components/chat-window/chat-window';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'chats', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: Login },
   { 
     path: 'chats', 
-    loadComponent: () => import('./components/sidebar/sidebar')
-      .then(m => m.Sidebar) 
-  },
-  { 
-    path: 'chats/:id', 
-    loadComponent: () => import('./components/chat-window/chat-window')
-      .then(m => m.ChatWindow) 
-  },
-  { 
-    path: 'nuevo', 
-    loadComponent: () => import('./components/chat-form/chat-form')
-      .then(m => m.ChatForm) 
+    component: Home, 
+    children: [
+      { path: ':id', component: ChatWindow } // /chats/:id [cite: 69]
+    ]
   }
-];
+]; 

@@ -2,14 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChatService } from '../../services/chat.service';
 
-
 @Component({
-  selector: 'app-chat-window',
   standalone: true,
   imports: [ReactiveFormsModule],
   template: `
     <div class="chat-history">
-      @for (msg of activeChat()?.mensages; track msg.timestamp) {
+      @for (msg of activeChat()?.mensajes; track msg.timestamp) {
         <div [class]="'message ' + msg.sender">
           {{ msg.text }}
         </div>
@@ -22,20 +20,20 @@ import { ChatService } from '../../services/chat.service';
     </div>
   `
 })
-export class ChatWindow { 
+export class ChatWindow {
   chatService = inject(ChatService);
-
   messageInput = new FormControl('', { 
     nonNullable: true, 
     validators: [Validators.required] 
   });
 
+  // Supongamos que obtenemos el ID de la ruta [cite: 25]
   chatId = 1; 
 
   onSend() {
     if (this.messageInput.valid) {
       this.chatService.mandarMensaje(this.chatId, this.messageInput.value);
-      this.messageInput.reset(); 
+      this.messageInput.reset(); // Limpia el input tras enviar [cite: 17]
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { UsersService } from '../../services/users.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-form',
@@ -11,9 +11,9 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class Form {
   form: FormGroup;
   usuarios: any[] = [];
-  userService: any;
 
-  constructor(private fb: FormBuilder) {
+  // INYECTAMOS el UsersService aquí:
+  constructor(private fb: FormBuilder, private userService: UsersService) {
     this.form = this.fb.group({
       nombre: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
@@ -31,15 +31,11 @@ export class Form {
       }   
     });
   }
-
+  
   enviar() {
     if (this.form.valid) {
       this.usuarios.push(this.form.value);
-      next: () => {
-        this.usuarios.push(this.form.value);
+      this.form.reset();
     }
   }
-
-  this.form.reset(); 
-}
 }

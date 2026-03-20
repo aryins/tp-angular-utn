@@ -5,11 +5,11 @@ import { Chat, Mensaje } from '../modelos/interface.chat';
 export class ChatService {
   chats = signal<Chat[]>([
     {
-      id: 1,
+        id: 1,
       contactName: 'Aiden Chavez',
       avatar: 'assets/avatar1.jpg',
       status: 'online',
-      mensages: []
+      mensajes: []
     }
   ]);
 
@@ -41,8 +41,8 @@ export class ChatService {
   private updateChatHistory(chatId: number, mensaje: Mensaje) {
     this.chats.update(currentChats => 
       currentChats.map(chat => 
-        chat.id === chatId 
-          ? { ...chat, mensajes: [...chat.mensages, mensaje] } 
+        chat.contactName === ' '
+          ? { ...chat, mensajes: [...chat.mensajes, mensaje] } 
           : chat
       )
     );
