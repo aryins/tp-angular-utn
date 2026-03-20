@@ -1,0 +1,25 @@
+<div class="chat-container">
+  <div class="messages-log">
+    @for (msg of messages(); track msg.timestamp) {
+      <div [class]="'message-wrapper ' + msg.sender">
+        <div class="bubble">
+          <p>{{ msg.text }}</p>
+          <small>{{ msg.timestamp | date:'HH:mm' }}</small>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">Inicia la conversación...</div>
+    }
+  </div>
+
+  <footer class="input-area">
+    <input 
+      [formControl]="messageControl" 
+      (keyup.enter)="sendMessage()" 
+      placeholder="Escribe un mensaje..."
+    >
+    <button (click)="sendMessage()" [disabled]="messageControl.invalid">
+      Enviar
+    </button>
+  </footer>
+</div>

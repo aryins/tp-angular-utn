@@ -1,0 +1,11 @@
+.sidebar { width: 300px; background: #fff; border-right: 1px solid #ddd; display: flex; flex-direction: column; height: 100vh; }
+    header { padding: 15px; border-bottom: 1px solid #eee; }
+    .new-chat-form { display: flex; gap: 5px; margin-top: 10px; }
+    .new-chat-form input { flex: 1; padding: 5px; }
+    .list { flex: 1; overflow-y: auto; }
+    .contact-item { display: flex; align-items: center; gap: 10px; padding: 15px; text-decoration: none; color: #333; border-bottom: 1px solid #fafafa; }
+    .contact-item:hover { background: #f9f9f9; }
+    .active { background: #e3efff !important; border-right: 4px solid #007bff; }
+    .contact-item img { width: 40px; height: 40px; border-radius: 50%; }
+    .online { color: green; font-size: 0.7rem; }
+    .offline { color: gray; font-size: 0.7rem; }
