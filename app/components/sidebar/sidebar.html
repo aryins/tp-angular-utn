@@ -1,0 +1,27 @@
+<div style="display: flex; height: 100vh;">
+  <div class="sidebar">
+    <header>
+      <h3>Mis Chats</h3>
+      <form [formGroup]="contactForm" (ngSubmit)="addContact()" class="new-chat-form">
+        <input formControlName="nombre" placeholder="Nuevo contacto...">
+        <button [disabled]="contactForm.invalid">+</button>
+      </form>
+    </header>
+
+    <div class="list">
+      @for (contact of contacts(); track contact.id) {
+        <a [routerLink]="['/chats', contact.id]" routerLinkActive="active" class="contact-item">
+          <img [src]="contact.avatar" alt="avatar">
+          <div class="details">
+            <strong>{{ contact.nombre }}</strong>
+            <span [class]="contact.estado">{{ contact.estado }}</span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+
+  <main style="flex: 1; position: relative;">
+    <router-outlet></router-outlet>
+  </main>
+</div>
