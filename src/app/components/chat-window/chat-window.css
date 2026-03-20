@@ -1,0 +1,9 @@
+  styles {
+    .chat-container { display: flex; flex-direction: column; height: 100%; background: #f0f2f5; }
+    .messages-log { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .message { max-width: 70%; padding: 10px; border-radius: 8px; margin-bottom: 5px; }
+    .user { align-self: flex-end; background: #dcf8c6; }
+    .app { align-self: flex-start; background: white; border: 1px solid #ddd; }
+    .input-area { padding: 15px; background: white; display: flex; gap: 10px; }
+    input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ccc; }
+  }
