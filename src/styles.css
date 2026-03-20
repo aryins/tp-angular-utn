@@ -2,4 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    .app-container {
+  display: flex; /* [cite: 36, 86] */
+  height: 100vh;
+}
+
+/* En móviles se oculta un panel [cite: 33] */
+@media (max-width: 768px) {
+  .sidebar.hidden { display: none; }
+  .chat-window.hidden { display: none; }
+}
+
+.message.user { align-self: flex-end; background: #dcf8c6; } /* [cite: 19] */
+.message.app { align-self: flex-start; background: #fff; }  /* [cite: 20] */
 }

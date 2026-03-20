@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <input type="text" placeholder="Search..." /> <div class="chat-list">
+    @for (chat of chatService.chats(); track chat.id) {
+      <div class="chat-item" [routerLink]="['/chats', chat.id]">
+        <img [src]="chat.avatar" alt="avatar">
+        <div class="info">
+          <span>{{ chat.contactName }}</span>
+          @if (chat.status === 'online') {
+            <small class="online">En línea</small>
+          } @else {
+            <small>{{ chat.status }}</small>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  
+  <button routerLink="/nuevo">Nuevo Chat</button>
+</aside>

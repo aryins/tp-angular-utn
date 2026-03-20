@@ -6,7 +6,8 @@ import { Form } from './components/form/form';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Footer, Form],
+  standalone: true, 
+  imports: [Header, Footer, Form, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
