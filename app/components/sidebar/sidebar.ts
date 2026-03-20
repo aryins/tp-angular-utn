@@ -1,13 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { Contacto } from '../../models/contacto-model';
+import { RouterModule, RouterOutlet } from '@angular/router';
+
+export interface Contacto {
+  id: number;
+  nombre: string;
+  avatar: string;
+  estado: 'online' | 'offline';
+  ultimaVez?: string;
+}
 
 @Component({
-  
+  standalone: true,
   selector: 'app-sidebar',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, RouterOutlet],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
@@ -31,6 +38,7 @@ export class Sidebar {
         ultimaVez: 'Recién'
       };
 
+      // Actualizamos el Signal de forma inmutable
      this.contacts.update(prev => [...prev, newContact]);
       this.contactForm.reset();
     }

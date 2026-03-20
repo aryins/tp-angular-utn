@@ -17,11 +17,13 @@
             <span [class]="contact.estado">{{ contact.estado }}</span>
           </div>
         </a>
+      } @empty {
+        <p>No hay contactos.</p>
       }
     </div>
   </div>
 
-  <main style="flex: 1; position: relative;">
+  <main style="flex: 1;">
     <router-outlet></router-outlet>
   </main>
 </div>
